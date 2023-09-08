@@ -1,18 +1,22 @@
 
+//lista de tipos de pokemon
+function convertPokemonTypesToLi(pokemonTypes){
+    return pokemonTypes.map((typeSlot) => `<li class="type">${typeSlot.type.name}</li>`)
+    }
+
 
 function convertPokemonToLi(pokemon){
 return`
-<li class="pokemon">
-                <spam class="number">#001</spam>
-                <spam class="name">${pokemon.name}</spam>
+<li class="pokemon ${pokemon.type}">
+                <span class="number">${pokemon.number}</span>
+                <span class="name">${pokemon.name}</span>
 
                 <div class="detail">
                     <ol class="types">
-                        <li class="type">Grass</li>
-                        <li class="type">Poison</li>
+                    ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+
                     </ol>
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
-                    alt="${pokemon.name}">
+                    <img src="${pokemon.photo}" alt="${pokemon.name}">
                 </div>
                 
             </li>
@@ -20,11 +24,11 @@ return`
 }
 
 const pokemonList = document.getElementById(`pokemonList`)
-pokeapi.getPokemons().then((pokemons = []) =>{
+pokeApi.getPokemons().then((pokemons = []) =>{
     //map é uma função de lista para converter
     //join concatena na lista, '' deixa sem separador a string que foi gerada no html
-    pokemonList.innerHTML += pokemons.map(convertPokemonToLi).join('')
-
+    const newHtml = pokemons.map(convertPokemonToLi).join('')
+    pokemonList.innerHTML = newHtml
 })
     
 
