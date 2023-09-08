@@ -22,7 +22,7 @@ return`
 const pokemonList = document.getElementById(`pokemonList`)
 pokeapi.getPokemons().then((pokemons = []) =>{
     //map é uma função de lista para converter
-    //join concatena na lista, '' coloca vazio para criar o objeto sem quebra
+    //join concatena na lista, '' deixa sem separador a string que foi gerada no html
     pokemonList.innerHTML += pokemons.map(convertPokemonToLi).join('')
 
 })
