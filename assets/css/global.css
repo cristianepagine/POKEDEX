@@ -3,17 +3,48 @@
     /*considera a borda como tamanho total*/
     box-sizing: border-box; 
 }
+h1 {
+    color: rgb(105, 105, 165);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1.5;
+    }
 body{
-    background-color: #f6f8fc;
+    background-color: #A7B7B7;
 }
 
 .content {
     width: 100vw;
     height: 100vh;
     padding: 1rem;
-    background-color: #fff;  
+    background-color: #BDBCD8;  
     
 }
+
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.pagination button{
+    background-color: #a77aa7;
+    border-radius: 1rem;
+    border: none;
+    color: #fff;
+    font-size: .825rem;
+    margin: .25rem 0;
+    width: 4rem;
+    height: 1.3rem;
+
+    
+}
+
+
 @media screen and (min-width: 992px) {
      .content{
         max-width: 992px;
